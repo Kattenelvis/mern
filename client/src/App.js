@@ -18,7 +18,6 @@ function App() {
         <Container>
           <ItemModal />
         </Container>
-        <h1>GOOD MORNING VIETNAM</h1>
       </div>
     </Provider>
   );

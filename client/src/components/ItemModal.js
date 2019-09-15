@@ -11,7 +11,6 @@ import {
 } from "reactstrap";
 import { connect } from "react-redux";
 import { addItem } from "../actions/itemActions";
-import uuid from "uuid";
 
 class ItemModal extends Component {
   state = {
@@ -33,7 +32,6 @@ class ItemModal extends Component {
     e.preventDefault();
 
     const newItem = {
-      id: uuid(),
       name: this.state.name
     };
 
@@ -59,7 +57,7 @@ class ItemModal extends Component {
               <FormGroup>
                 <Label>Add</Label>
                 <Input
-                  for="item"
+                  htmlFor="item"
                   name="name"
                   id="item"
                   placeholder="Add shopping item"

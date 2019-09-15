@@ -1,13 +1,13 @@
-import uuid from "uuid";
-import { GET_ITEMS, DELETE_ITEM, ADD_ITEM } from "../actions/types";
+import {
+  GET_ITEMS,
+  DELETE_ITEM,
+  ADD_ITEM,
+  ITEMS_LOADING
+} from "../actions/types";
 
 const initialState = {
-  items: [
-    { id: uuid(), name: "Cringe" },
-    { id: uuid(), name: "Naners" },
-    { id: uuid(), name: "Epic" },
-    { id: uuid(), name: "Kenyam Knuckles" }
-  ]
+  items: [],
+  loading: false
 };
 
 export default function(state = initialState, action) {
@@ -22,10 +22,14 @@ export default function(state = initialState, action) {
         items: state.items.filter(item => item.id !== action.payload)
       };
     case ADD_ITEM:
-      console.log(...state);
       return {
         ...state,
         items: [action.payload, ...state.items]
+      };
+    case ITEMS_LOADING:
+      return {
+        ...state,
+        loading: true
       };
     default:
       return state;
